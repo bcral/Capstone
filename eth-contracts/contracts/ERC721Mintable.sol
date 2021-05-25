@@ -10,7 +10,7 @@ contract Ownable {
     //  TODO's
     //  1) create a private '_owner' variable of type address with a public getter function
         address private _owner;
-        function getOwner() public view {
+        function getOwner() public view returns(address) {
             return _owner;
         }
     //  2) create an internal constructor that sets the _owner var to the creater of the contract 
@@ -37,11 +37,33 @@ contract Ownable {
 }
 
 //  TODO's: Create a Pausable contract that inherits from the Ownable contract
+contract Pausable is Ownable {
 //  1) create a private '_paused' variable of type bool
+    bool _paused;
 //  2) create a public setter using the inherited onlyOwner modifier 
+    function pause() public onlyOwner returns(bool) {
+        return _paused;
+    }
+
 //  3) create an internal constructor that sets the _paused variable to false
+    constructor() public {
+        _paused = false;
+    }
+
 //  4) create 'whenNotPaused' & 'paused' modifier that throws in the appropriate situation
+    modifier whenNotPaused() {
+        require(_paused == false, "Contract is paused by it's owner.");
+        _;
+    }
+
+    modifier paused() {
+        require(_paused, "Contract is not paused - The owner must pause it to run this.");
+        _;
+    }
 //  5) create a Paused & Unpaused event that emits the address that triggered the event
+    event Paused(address caller);
+    event Unpaused(address caller);
+}
 
 contract ERC165 {
     bytes4 private constant _INTERFACE_ID_ERC165 = 0x01ffc9a7;
@@ -120,10 +142,12 @@ contract ERC721 is Pausable, ERC165 {
     function balanceOf(address owner) public view returns (uint256) {
         // TODO return the token balance of given address
         // TIP: remember the functions to use for Counters. you can refresh yourself with the link above
+        return(_ownedTokensCount[owner].current());
     }
 
     function ownerOf(uint256 tokenId) public view returns (address) {
         // TODO return the owner of the given tokenId
+        return _tokenOwner[tokenId];
     }
 
 //    @dev Approves another address to transfer the given token ID
