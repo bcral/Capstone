@@ -30,11 +30,11 @@ contract('SolnSquareVerifier', accounts => {
         it('should add a new solution', async function () {
 
             try {
-                await this.solutionContract.mintNewNFT(acct, 1, Proof.proof.a, Proof.proof.b, Proof.proof.c, {from: acct, gas: 9999999});
+                await this.solutionContract.mintNewNFT(acct, 2, Proof.proof1.a, Proof.proof1.b, Proof.proof1.c, {from: acct, gas: 9999999});
             } catch(e) {console.log(e)}
 
             let result = await this.solutionContract.totalSupply.call({from: acct});
-            assert.equal(result, 2, "1 new token should exist");
+            assert.equal(result, 1, "1 new token should exist, but with new solution(making total of 2)");
         })
     });
 });
