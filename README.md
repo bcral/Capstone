@@ -13,18 +13,19 @@ The capstone will build upon the knowledge you have gained in the course in orde
 * [Docker](https://docs.docker.com/install/)
 * [ZoKrates](https://github.com/Zokrates/ZoKrates)
 
-Run docker with this: 
 
-docker run -v "/Users/brent/Capstone/zokrates/code/":/home/zokrates/code -it zokrates/zokrates:0.4.6 /bin/bash
+Versions:
 
-cd code/square
+    Truffle v5.3.4 (core: 5.3.4)
+    Solidity v0.5.16 (solc-js)
+    Node v10.24.0
+    Web3.js v1.3.5
 
-~/zokrates compile -i square.code
+Rinkeby contract addresses: 
 
-~/zokrates setup
+    -Verifier: 0x5740Fd3dc23C2b796dc1da7cc7197eae2A5eF30E
+    -SolnSquareVerifier: 0x01a8bfDbfaEca1f3237598d343E8a562dE4c7860
 
-~/zokrates compute-witness -a 3 9
+OpenSea marketplace link:
 
-~/zokrates generate-proof
-
-~/zokrates export-verifier
+    https://testnets.opensea.io/0x9c6a564984604456ee383e718dcf302c4648cd13

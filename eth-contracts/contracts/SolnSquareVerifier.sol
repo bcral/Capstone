@@ -4,9 +4,7 @@ import "./ERC721Mintable.sol";
 import "./verifier.sol";
 
 // TODO define a contract call to the zokrates generated solidity contract <Verifier> or <renamedVerifier>
-contract SquareVerifier is Verifier {
-    
-}
+contract SquareVerifier is Verifier {}
 
 // TODO define another contract named SolnSquareVerifier that inherits from your ERC721Mintable class
 contract SolnSquareVerifier is CustomERC721Token {
@@ -44,12 +42,13 @@ contract SolnSquareVerifier is CustomERC721Token {
         uint256 tokenId,
         uint[2] memory a,
         uint[2][2] memory b,
-        uint[2] memory c
+        uint[2] memory c,
+        uint[2] memory d
         ) 
         public 
         {
             // Generate hash from solution data to use as key in solutionMap
-            bytes32 solutionHash = keccak256(abi.encodePacked(a, b, c));
+            bytes32 solutionHash = keccak256(abi.encodePacked(a, b, c, d));
             //  - make sure the solution is unique (has not been used before)
             require(solutionMap[solutionHash]._address == address(0), "This solution already exists.");
             //  - make sure you handle metadata as well as tokenSuplly
