@@ -26,7 +26,7 @@ Rinkeby contract addresses:
     -Verifier: 0x5740Fd3dc23C2b796dc1da7cc7197eae2A5eF30E
     -SolnSquareVerifier: 0x01a8bfDbfaEca1f3237598d343E8a562dE4c7860
 
-Contract ABIs(located in eth-contracts/build/contracts)
+Contract ABIs(located in build )
 
 OpenSea marketplace link:
 
