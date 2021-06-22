@@ -26,6 +26,12 @@ Rinkeby contract addresses:
     -Verifier: 0x5740Fd3dc23C2b796dc1da7cc7197eae2A5eF30E
     -SolnSquareVerifier: 0x01a8bfDbfaEca1f3237598d343E8a562dE4c7860
 
+Contract ABIs(located in eth-contracts/build/contracts)
+
 OpenSea marketplace link:
 
     https://testnets.opensea.io/0x9c6a564984604456ee383e718dcf302c4648cd13
+
+To test(in eth-contracts directory):
+    - "truffle test"
+
